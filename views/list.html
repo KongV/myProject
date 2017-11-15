@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信息展示效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-size: 14px;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+            list-style: none;
+        }
+        #wrap{
+            height:100%;
+            overflow:hidden;
+            margin: 0 auto;
+            width: 550px;
+            border: 1px solid #aaa;
+        }
+        #switch{
+            height: 40px;
+        }
+        #switch a{
+            width: 16px;
+            height: 16px;
+            display: block;
+            float: right;
+            margin: 3px;
+        }
+        #switch #btn-car-off{
+            background: #aaa url(images/btns.jpg) -37px -32px;
+        }
+        #switch #btn-car-on{
+            background: #aaa url(images/btns.jpg) -20px -33px;
+        }
+        #switch #btn-list-off{
+            background: #aaa url(images/btns.jpg) -38px 0;
+        }
+        #switch #btn-list-on{
+            background: #aaa url(images/btns.jpg) -21px 0;
+        }
+        #car{
+            width: 540px;
+            margin: 0 auto;
+        }
+        #car li{
+            float: left;
+            margin: 7px;
+            border: 1px solid #ccc;
+        }
+        #car .con-big .a-img{
+            width: 164px;
+            height: 164px;
+            display: block;
+            overflow: hidden;
+        }
+        #car .con-big p span{
+            display: block;
+            margin-left: 10px;
+            line-height: 23px;
+        }
+        #car .btn{
+            width: 164px;
+            line-height: 40px;
+            background-color: #ccc;
+            text-align: center;
+            overflow: hidden;
+        }
+        #car .con-small .a-img{
+            margin: 5px;
+            width: 50px;
+            height:50px;
+            display: block;
+            overflow:hidden;
+            float: left;
+        }
+        #car .con-small p{
+            display: block;
+            float: left;
+        }
+        #car .con-small p span{
+            display: block;
+            margin-left:0;
+            line-height: 23px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            function getByClassName(parent,cls){
+                var itme = parent.getElementsByTagName('*');
+                var result = [];
+                for (var i = itme.length - 1; i >= 0; i--) {
+                    if(itme[i].className==cls){
+                        result.push(itme[i]);
+                    }
+                }
+                return result;
+            }
+            var switchBar = document.getElementById('switch');
+            var list=switchBar.getElementsByTagName('a')[0];
+            var car =switchBar.getElementsByTagName('a')[1];
+            var all = document.getElementById("car");
+            list.onclick=changeSwitchClass;
+            car.onclick = changeSwitchClass;
+            function changeSwitchClass(e){
+                if(this.id=="btn-car-off"){
+                    var itmes = getByClassName(all,"con-small");
+                    this.id="btn-car-on";
+                    list.id="btn-list-off";
+                    for (var i = itmes.length - 1; i >= 0; i--) {
+                        itmes[i].className = "con-big";
+                    }
+                }else if(this.id=="btn-list-off"){
+                    var itmes = getByClassName(all,"con-big");
+                    this.id="btn-list-on";
+                    car.id="btn-car-off";
+                    for (var i = itmes.length - 1; i >= 0; i--) {
+                        itmes[i].className="con-small";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <div id="switch">
+        <a href="#" id="btn-list-off"></a>
+        <a href="#" id="btn-car-on"></a>
+    </div>
+    <ul id="car">
+        <li>
+            <div class="con-big">
+                <a href="#" class="a-img"><img src="images/big.jpg" alt=""></a>
+                <p>
+                    <span><a href="#">白阳</a></span>
+                    <span>辽宁</span>
+                    <span>21个共同好友</span>
+                </p>
+            </div>
+            <div class="btn">
+                <a href="#">未分组的好友</a>
+            </div>
+        </li>
+        <li>
+            <div class="con-big">
+                <a href="#" class="a-img"><img src="images/big.jpg" alt=""></a>
+                <p>
+                    <span><a href="#">白阳</a></span>
+                    <span>辽宁</span>
+                    <span>21个共同好友</span>
+                </p>
+            </div>
+            <div class="btn">
+                <a href="#">未分组的好友</a>
+            </div>
+        </li>
+        <li>
+            <div class="con-big">
+                <a href="#" class="a-img"><img src="images/big.jpg" alt=""></a>
+                <p>
+                    <span><a href="#">白阳</a></span>
+                    <span>辽宁</span>
+                    <span>21个共同好友</span>
+                </p>
+            </div>
+            <div class="btn">
+                <a href="#">未分组的好友</a>
+            </div>
+        </li>
+        <li>
+            <div class="con-big">
+                <a href="#" class="a-img"><img src="images/big.jpg" alt=""></a>
+                <p>
+                    <span><a href="#">白阳</a></span>
+                    <span>辽宁</span>
+                    <span>21个共同好友</span>
+                </p>
+            </div>
+            <div class="btn">
+                <a href="#">未分组的好友</a>
+            </div>
+        </li>
+        <li>
+            <div class="con-big">
+                <a href="#" class="a-img"><img src="images/big.jpg" alt=""></a>
+                <p>
+                    <span><a href="#">白阳</a></span>
+                    <span>辽宁</span>
+                    <span>21个共同好友</span>
+                </p>
+            </div>
+            <div class="btn">
+                <a href="#">未分组的好友</a>
+            </div>
+        </li>
+        <li>
+            <div class="con-big">
+                <a href="#" class="a-img"><img src="images/big.jpg" alt=""></a>
+                <p>
+                    <span><a href="#">白阳</a></span>
+                    <span>辽宁</span>
+                    <span>21个共同好友</span>
+                </p>
+            </div>
+            <div class="btn">
+                <a href="#">未分组的好友</a>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

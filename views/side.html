@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        var jWindow = $(window);
+        jWindow.scroll(function(){
+            var scrollHeight = jWindow.scrollTop();
+            var screenHeight = jWindow.height();
+            var sideHeight = $("#sideHeight").height();
+            if(scrollHeight + screenHeight> sideHeight){
+                $("#sideHeight").css({
+                    'position':'fixed',
+                    'top':-(sideHeight-screenHeight),
+                    'right':0
+                })
+            }else{
+                $("#sideHeight").css({
+                    'position':'static',
+                })
+            }
+        })
+        window.onload = function(){
+            jWindow.trigger('scroll');
+        }
+        jWindow.resize(function () {
+            jWindow.trigger('scroll');
+        })
+    </script>
+</body>
+</html>
